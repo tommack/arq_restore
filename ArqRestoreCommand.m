@@ -178,7 +178,8 @@
                 }
                 data = [encryptedData decryptWithCryptoKey:cryptoKey error:error];
                 if (data == nil) {
-                    return NO;
+                    fprintf(stderr, "restore error: %s, continuing\n", [[*error localizedDescription] UTF8String]);
+                    break;
                 }
             }
 
